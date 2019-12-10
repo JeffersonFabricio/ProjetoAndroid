@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        tools:context=".activities.MainActivity">
+
+    <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+                android:id="@+id/imgVMain"
+                android:layout_width="match_parent"
+                android:layout_height="369dp"
+                android:contentDescription="@string/picUser"
+                android:src="@drawable/androidbr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:layout_width="564dp"
+                android:layout_height="283dp"
+                android:gravity="bottom|center"
+                android:text="@string/app_name"
+                android:textColor="@color/colorPrimary"
+                android:textSize="22sp" />
+
+    </FrameLayout>
+
+    <Button
+            android:id="@+id/btnMainRegister"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/btnRegister"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/frameLayout"
+            tools:ignore="MissingConstraints"
+            tools:text="@string/btnRegister" />
+
+    <Button
+            android:id="@+id/btnMainLogin"
+            android:layout_width="183dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="320dp"
+            android:text="@string/btnLogin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/frameLayout"
+            tools:ignore="MissingConstraints"
+            tools:text="@string/btnLogin" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

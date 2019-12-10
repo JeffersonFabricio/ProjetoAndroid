@@ -1,0 +1,35 @@
+<resources>
+
+    <string name="app_name">Project Android C.E.S.A.R</string>
+    <string name="dialogNewTitulo">Nova Tarefa</string>
+    <string name="dialogEditTitulo">Editar Tarefa</string>
+    <string name="hintText">Adicione a sua Tarefa...</string>
+    <string name="novo">Nova Tarefa</string>
+    <string name="editar">Editar Tarefa</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="toastTarefa">Adicione uma tarefa!</string>
+    <string name="excluir">Excluir Tarefa</string>
+    <string name="excluirTudo">Excluir Todas as Tarefas</string>
+    <string name="tituloOpcao">Escolha uma Opção</string>
+    <string name="toastErro">Erro ao Carregar a Ação</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnRegister">Register</string>
+    <string name="btnCancelRegister">Cancel</string>
+    <string name="btnConfirmRegister">Confirm</string>
+    <string name="btnCancelLogin">Cancel</string>
+    <string name="btnConfirmLogin">Confirm</string>
+    <string name="description_btn_recycleview">Delete</string>
+    <string name="picUser">Picture User</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="hint_name">Nome</string>
+    <string name="hint_cpf">CPF</string>
+    <string name="hint_login">Login</string>
+    <string name="hint_cancel">Cancel</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Password</string>
+    <string name="txtLogin">Login</string>
+    <string name="txtPassword">Password</string>
+</resources>
