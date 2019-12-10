@@ -10,18 +10,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.NotificationCompat
 import fabricio.jefferson.listadetarefas.R
-import kotlinx.android.synthetic.main.activity_lista_de_atividades.*
+import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var notificationManager: NotificationManager
-    private val channelId = "fabricio.jefferson.projectlogin"
+    private val channelId = "fabricio.jefferson.listadetarefas"
     private val description = "Notification"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_activity)
 
         createNotification(this)
 
