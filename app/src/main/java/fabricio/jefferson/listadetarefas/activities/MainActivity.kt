@@ -9,21 +9,22 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.NotificationCompat
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import fabricio.jefferson.listadetarefas.R
+import fabricio.jefferson.listadetarefas.job.LembreteWork
+import fabricio.jefferson.listadetarefas.job.RememberWork
 import kotlinx.android.synthetic.main.main_activity.*
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var notificationManager: NotificationManager
-    private val channelId = "fabricio.jefferson.listadetarefas"
-    private val description = "Notification"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        createNotification(this)
+        createNotification()
 
         btnMainRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -36,33 +37,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun createNotification(context: Context){
+    private fun createNotification(){
 
-        notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        val intent = Intent(context, LoginActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-
-        val pedingIntent = PendingIntent.getActivity(context, 1234,
-            intent, PendingIntent.FLAG_UPDATE_CURRENT)
-
-        val builder = NotificationCompat.Builder(context, channelId)
-        builder.setSmallIcon(R.drawable.ic_launcher_foreground)
-        builder.setContentTitle("My app notification")
-        builder.setContentText("Acessar a aplicação para verificar as atividades")
-        builder.setPriority(NotificationCompat.PRIORITY_HIGH)
-        builder.setAutoCancel(true)
-        builder.setContentIntent(pedingIntent)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val notificationChannel = NotificationChannel(channelId,
-                description, NotificationManager.IMPORTANCE_HIGH)
-            notificationManager.createNotificationChannel(notificationChannel)
-        }
-
-        val notification = builder.build()
-        notificationManager.notify(1234, notification)
+        val myWorkBuilder: PeriodicWorkRequest.Builder = PeriodicWorkRequest.Builder(
+            RememberWork::class.java, 24, TimeUnit.HOURS
+        )
+        val myWork: PeriodicWorkRequest = myWorkBuilder.build()
+        WorkManager.getInstance().enqueueUniquePeriodicWork(
+            "jobRemember", ExistingPeriodicWorkPolicy.KEEP, myWork
+        )
 
     }
 

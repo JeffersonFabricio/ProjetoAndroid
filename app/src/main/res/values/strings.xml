@@ -32,4 +32,5 @@
     <string name="hint_password">Password</string>
     <string name="txtLogin">Login</string>
     <string name="txtPassword">Password</string>
+    <string name="msg_notification">Acesse o aplicativo</string>
 </resources>
